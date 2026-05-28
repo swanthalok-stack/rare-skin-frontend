@@ -6,7 +6,7 @@ import { Home } from "./pages/Home";
 import { Services } from "./pages/Services";
 import { Shop } from "./pages/Shop";
 import { Mishti } from "./pages/Mishti";
-import { MishtiNew } from "./pages/MishtiNew"; // <--- Fixed the brackets here!
+import { MishtiNew } from "./pages/MishtiNew";
 import { Journal } from "./pages/Journal";
 import { JournalArticle } from "./pages/JournalArticle";
 import { Dashboard } from "./pages/Dashboard";
@@ -24,20 +24,15 @@ import { Partner } from "./pages/Partner";
 import { Mirror } from "../pages/Mirror";
 import About from "../pages/About";
 
-// 3. Temporarily disabled so empty files don't crash your terminal
-// import { Terms } from "../pages/Terms";
-// import { Privacy } from "../pages/Privacy";
-// import { Contact } from "../pages/Contact";
-
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
     children: [
-      { index: true, Component: Home },
+      { index: true, Component: Mishti }, // <-- THE FIX: AI Scanner is now the Homepage!
+      { path: "home", Component: Home },  // <-- THE FIX: Old homepage is moved to /home
       { path: "services", Component: Services },
       { path: "shop", Component: Shop },
-      { path: "mishti", Component: Mishti },
       { path: "mishti-new", Component: MishtiNew },
       { path: "journal", Component: Journal },
       { path: "journal/:id", Component: JournalArticle },
@@ -55,10 +50,6 @@ export const router = createBrowserRouter([
       // New Routes
       { path: "the-mirror", Component: Mirror },
       { path: "about", Component: About },
-      
-      // { path: "terms", Component: Terms },
-      // { path: "privacy", Component: Privacy },
-      // { path: "contact", Component: Contact },
     ],
   },
 ]);
