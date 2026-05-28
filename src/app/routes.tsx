@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import { Root } from "./components/Root";
 
-// 1. Original Pages (Using exactly ./pages/ as they originally were)
+// 1. Original Pages
 import { Home } from "./pages/Home";
 import { Services } from "./pages/Services";
 import { Shop } from "./pages/Shop";
@@ -20,7 +20,7 @@ import { BookingReview } from "./pages/BookingReview";
 import { BookingConfirmation } from "./pages/BookingConfirmation";
 import { Partner } from "./pages/Partner";
 
-// 2. The New Pages we built today (Using ../pages/)
+// 2. New Pages
 import { Mirror } from "../pages/Mirror";
 import About from "../pages/About";
 
@@ -29,10 +29,10 @@ export const router = createBrowserRouter([
     path: "/",
     Component: Root,
     children: [
-      { index: true, Component: Mishti }, // <-- THE FIX: AI Scanner is now the Homepage!
-      { path: "home", Component: Home },  // <-- THE FIX: Old homepage is moved to /home
+      { index: true, Component: Home }, // <-- RESTORED: Luxury Spa is back as the homepage!
       { path: "services", Component: Services },
       { path: "shop", Component: Shop },
+      { path: "mishti", Component: Mishti }, // <-- RESTORED: AI Scanner is back to the Mishti tab!
       { path: "mishti-new", Component: MishtiNew },
       { path: "journal", Component: Journal },
       { path: "journal/:id", Component: JournalArticle },
